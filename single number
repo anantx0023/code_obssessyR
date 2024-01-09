@@ -1,0 +1,22 @@
+Leetcode Problem :- Single Number
+
+Approaches :-
+1) Using Nested Loop , TC -> O(N*N)
+2) Using Sorting , TC -> O(NlogN)
+3) Using XOR , TC -> O(N)
+
+
+XOR of all double element will cancel out each other and there will be single element left at last
+[1,2,3,3,4,2,1] => 1^2^3^3^4^2^1 = 4
+Code for optimal Solution
+///////////////////////////////////////
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for(int i=0; i<nums.size();i++){
+              ans = ans^nums[i];
+        }
+        return ans;
+    }
+};
