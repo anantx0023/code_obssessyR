@@ -1,0 +1,15 @@
+//print the subsets in an given array
+class Solution{
+  public:
+    int countSumSubsets(int arr[], int N){
+        int k = pow(2,N);
+        for(int i=1; i<k; i++){
+            sum = 0;
+            for(int j=0; j<N; j++){
+                if(((i>>j)&1)==1){
+                   cout<<arr[j];
+                }
+            } 
+        }
+    }
+};
