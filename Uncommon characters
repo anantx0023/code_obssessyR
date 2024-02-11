@@ -1,0 +1,35 @@
+Given two strings A and B consisting of lowercase english characters. Find the characters that are not common in the two strings. 
+
+Note :- Return the string in sorted order
+class solution
+{
+    public:
+    string UncommonChars(string A, string B){
+        string r = A+B;
+        unordered_map<char,int>map;
+        for(char ch:r){
+            map[ch] = 0;
+        }
+        for(char ch:A){
+            map[ch] = 1;
+        }
+        for(char ch:B){
+            if(map[ch]==1){
+                map[ch] = 2;
+            }
+        }
+        string ans;
+        for(auto it = map.begin(); it!=map.end(); it++){
+            if(it->second == 1 || it->second == 0){
+                ans += it->first;
+            }
+        }
+        if(ans.empty()){
+            return to_string(-1);
+        }
+        else{
+            sort(ans.begin(),ans.ens());
+            return ans;
+        }
+    }
+}
