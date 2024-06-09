@@ -1,6 +1,6 @@
 You are given an integer array 'arr' of size 'N' and an integer 'K'.
 Your task is to find the total number of subarrays of the given array whose sum of elements is equal to k.
-A subarray is defined as a contiguous block of elements in the array.
+A subarray is defined as a contiguous block of elements in the array
 <--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 int findAllSubarraysWithGivenSum(vector < int > & arr, int k) {
     // Write Your Code Here
