@@ -1,0 +1,68 @@
+Given an array nums of distinct integers, return all the possible 
+permutations
+You can return the answer in any order.
+<------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+class Solution {
+    private:
+    void recfun(vector<int>& nums, vector<int>& ds, vector<vector<int>>& ans, vector<bool>& freq){
+        if(ds.size()==nums.size()){
+            ans.push_back(ds);
+            return;
+        }
+
+        for(int i=0; i<nums.size(); i++){
+            if(!freq[i]){
+                freq[i] = true;
+                ds.push_back(nums[i]);
+                recfun(nums,ds,ans,freq);
+                ds.pop_back();
+                freq[i] = false;
+            }
+        }
+    }
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>>ans;
+        vector<int>ds;
+        vector<bool>freq(nums.size(),false);
+        recfun(nums,ds,ans,freq);
+        return ans;
+    }
+};
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+#####solving this using next permutation function#####
+
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> result;
+        
+        // Sort the input vector
+        sort(nums.begin(), nums.end());
+        
+        // Generate all permutations
+        do {
+            result.push_back(nums);
+        } while (next_permutation(nums.begin(), nums.end()));
+        
+        return result;
+    }
+};
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+#####generating permutations for string######
+vector<string> generatePermutations(string s) {
+    vector<string> permutations;
+    
+    // Sort the string
+    sort(s.begin(), s.end());
+    
+    // Generate all permutations
+    do {
+        permutations.push_back(s);
+    } while (next_permutation(s.begin(), s.end()));
+    
+    return permutations;
+}
